@@ -219,7 +219,7 @@ host : desired subdomains (divineprovisions in my case)
 Value : public_ip_address
 ```
 
-{place image of domain registration step}
+![my phot]('Screenshot from 2024-02-01 15-25-54.png')
 
 33. Replace server_name in /etc/nginx/sites-available/grocery-app with your domain name. After replacing the server's ip, it should look like this:
 ```bash
