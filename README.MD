@@ -11,7 +11,14 @@ apt update -y
 2. create a system user and provide it sudo privileges
 ```bash
 adduser react
+```
+
+```bash
 usermod -aG sudo react
+
+```
+
+```bash
 logout
 ```
 
@@ -32,18 +39,25 @@ ssh-copy-id react@X.X.X.X
 ssh react@X.X.X.X
 ```
 
-7. Find the path to the file that has lines with word "permitRootLogin"
-and "passwordauthentication"
+7. Find the path to the file that has lines with word "permitRootLogin" and "passwordauthentication".
 ```bash
 sudo grep -ir "permitrootlogin" /etc
-sudo grep -ir "passwordauthentication" /etc```
+```
 
-8. Disable root login and password authentication for extra security
+```bash
+sudo grep -ir "passwordauthentication" /etc
+```
+
+8. Disable root login and password authentication for extra security.
 ```bash
 sudo sed -i 's/PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_configsed 
+```
 
+```bash
 sudo sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
+```
 
+```bash
 sudo systemctl restart ssh
 ```
 
@@ -60,8 +74,12 @@ sudo sed -i '/^127.0.0.1/s/localhost/React' /etc/hosts
 ```
 
 12. logout and login in order to have hostname effective
+
 ```bash
 logout
+```
+
+```bash
 ssh react@public_ip_address
 ```
 
@@ -90,7 +108,13 @@ sudo ln -sf /usr/share/zoneinfo/Australia/Melbourne /etc/localtime
 16. keep the system time accurate with ntp server
 ```bash
 sudo apt install ntp
+```
+
+```bash
 sudo apt start ntp
+```
+
+```bash
 sudo apt enable ntp
 ```
 
@@ -102,7 +126,7 @@ date
 ## Installing and Configurig Nginx
 
 18. update the system and install nginx
-```
+```bash
 sudo apt update -y
 sudo apt install nginx -y
 ```
@@ -133,7 +157,13 @@ server {
 21. create directory /var/www/html/grocery-app to store built files for our react app and set the appropriate permission and ownership
 ```bash
 sudo mkdir -p /var/www/html/grocery-app
+```
+
+```bash
 sudo chmod -R 774  /var/www/html/grocery-app/
+```
+
+```bash
 sudo chown -R $USER:$USER /var/www/html/grocery-app/
 ```
 
