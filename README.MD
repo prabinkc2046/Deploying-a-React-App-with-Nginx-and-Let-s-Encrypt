@@ -160,7 +160,7 @@ sudo mkdir -p /var/www/html/grocery-app
 ```
 
 ```bash
-sudo chmod -R 774  /var/www/html/grocery-app/
+sudo chmod -R 775  /var/www/html/grocery-app/
 ```
 
 ```bash
